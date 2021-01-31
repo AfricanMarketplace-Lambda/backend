@@ -1,6 +1,7 @@
 const pg = require("pg");
+const { PGUSER, PGPASSWORD } = require("./config/secrets");
 
-const localConnection = "postgresql://localhost/setupdb";
+const localConnection = `postgresql://${PGUSER}:${PGPASSWORD}@localhost/bw_db`;
 
 let connection;
 
@@ -16,7 +17,7 @@ const sharedConfig = {
   connection,
   migrations: { directory: "./database/migrations" },
   seeds: { directory: "./database/seeds" }
-}
+};
 
 module.exports = {
   development: { ...sharedConfig },
