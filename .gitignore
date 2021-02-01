@@ -2,7 +2,7 @@
 node_modules
 
 #secrets config
-secrets.js
+#secrets.js
 
 # .env
-.env
+#.env
