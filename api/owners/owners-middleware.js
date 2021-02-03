@@ -7,7 +7,7 @@ module.exports = {
 
 function validateOwnerId(req, res, next) {
     const { id } = req.params;
-    Owner.findById(id)
+    Owner.getById(id)
         .then(owner => {
             if (!owner) {
                 res.status(404).json({ message: `Owner with id ${id} not found` });

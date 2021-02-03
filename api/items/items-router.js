@@ -16,6 +16,14 @@ router.get("/:id", validateItemId, (req, res) => {
     res.status(200).json(req.item);
 });
 
+router.post("/", validateItem, (req, res, next) => {
+    Item.insert(req.body)
+        .then(newItem => {
+            res.status(201).json(newItem);
+        })
+        .catch(next);
+});
+
 router.put("/:id", validateItemId, validateItem, (req, res, next) => {
     const { id } = req.params;
     const changes = req.body;

@@ -7,7 +7,7 @@ module.exports = {
 
 function validateItemId(req, res, next) {
     const { id } = req.params;
-    Item.findById(id)
+    Item.getById(id)
         .then(item => {
             if (!item) {
                 res.status(404).json({ message: `Item with id ${id} not found` });
