@@ -26,7 +26,7 @@ router.put("/:id", validateOwnerId, validateOwner, (req, res, next) => {
         .catch(next);
 });
 
-router.delete(":/id", validateOwnerId, (req, res, next) => {
+router.delete("/:id", validateOwnerId, (req, res, next) => {
     const { id } = req.params;
     Owner.remove(id)
         .then(() => {

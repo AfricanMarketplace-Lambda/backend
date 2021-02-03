@@ -4,9 +4,10 @@
     "dev": "nodemon index.js",
     "migrate": "knex migrate:latest",
     "rollback": "knex migrate:rollback",
-    "migrateh": "heroku run knex migrate:latest -a setupdb-prototype",
-    "rollbackh": "heroku run knex migrate:rollback -a setupdb-prototype",
-    "seed": "knex seed:run"
+    "migrateh": "heroku run knex migrate:latest -a tt17-african-marketplace",
+    "rollbackh": "heroku run knex migrate:rollback -a tt17-african-marketplace",
+    "seed": "knex seed:run",
+    "seedh": "heroku run knex seed:run -a tt17-african-marketplace"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
