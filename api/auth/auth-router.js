@@ -35,7 +35,7 @@ router.post("/login", checkLoginRequest, checkUsernameExists, (req, res) => {
         if (verifyUser) {
             const token = generateToken(req.ownerData);
             res.status(200).json({
-                message: "Welcome to our API" + req.ownerData.username,
+                message: "Welcome to our API " + req.ownerData.username,
                 token
             });
         } else {
