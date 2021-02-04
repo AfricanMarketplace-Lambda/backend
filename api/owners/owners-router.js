@@ -17,7 +17,7 @@ router.get("/:id", validateOwnerId, (req, res) => {
 });
 
 router.put("/:id", validateOwnerId, validateOwner, (req, res, next) => {
-    const { id } = req.params;
+    const { id } = req.owner;
     const changes = req.body;
     Owner.update(id, changes)
         .then(updatedOwner => {
@@ -27,7 +27,7 @@ router.put("/:id", validateOwnerId, validateOwner, (req, res, next) => {
 });
 
 router.delete("/:id", validateOwnerId, (req, res, next) => {
-    const { id } = req.params;
+    const { id } = req.owner;
     Owner.remove(id)
         .then(() => {
             res.status(200).json({ message: "The owner has been deleted" });

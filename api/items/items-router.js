@@ -25,7 +25,7 @@ router.post("/", validateItem, (req, res, next) => {
 });
 
 router.put("/:id", validateItemId, validateItem, (req, res, next) => {
-    const { id } = req.params;
+    const { id } = req.item;
     const changes = req.body;
     Item.update(id, changes)
         .then(updatedItem => {
@@ -34,8 +34,8 @@ router.put("/:id", validateItemId, validateItem, (req, res, next) => {
         .catch(next);
 });
 
-router.delete(":/id", validateItemId, (req, res, next) => {
-    const { id } = req.params;
+router.delete("/:id", validateItemId, (req, res, next) => {
+    const { id } = req.item;
     Item.remove(id)
         .then(() => {
             res.status(200).json({ message: "The item has been deleted" });
